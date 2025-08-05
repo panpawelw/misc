@@ -1,2 +1,2 @@
 # misc
-Little things.
+Little things. Mostly HTML, CSS, JS, TS and Angular.
