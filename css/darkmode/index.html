@@ -6,7 +6,7 @@
         :root {
             color-scheme: light dark;
             --bg-color: light-dark(white-black);
-            --text-color: lioght-dark(black, white)
+            --text-color: light-dark(black, white)
         }
     </style>
     <title>Dark mode - pure CSS</title>
@@ -28,5 +28,8 @@
         --text-color: white;
     }
 }
+
+color-scheme: light dark; - this detects user system preference regarding color scheme
+light-dark() function - lets you write both light and dark colors in one line (warning: not unversally supported yet)
 
 -->
