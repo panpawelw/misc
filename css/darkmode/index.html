@@ -6,12 +6,22 @@
         :root {
             color-scheme: light dark;
             --bg-color: light-dark(white-black);
-            --text-color: light-dark(black, white)
+            --text-color: light-dark(black, white);
+        }
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
         }
     </style>
     <title>Dark mode - pure CSS</title>
 </head>
 <body>
+    <h3 class="centered">
+        This page background and text color change according to your system color scheme preference.
+    </h3>
 </body>
 </html>
 
