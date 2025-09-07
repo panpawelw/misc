@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @property --c {
+            syntax: "<integer>";
+            initial-value: 0;
+            inherits: true;
+        }
+
+        @keyframes timer {
+            from { --c: 10 }
+            to { --c: 1 }
+        }
+
+        div::after {
+            animation: timer 5s linear;
+            counter-reset: count var(--c);
+            content: counter(count);
+        }
+    </style>
+    <title>Countdown - pure CSS</title>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
