@@ -8,6 +8,13 @@
             font-family: 'Inter', sans-serif;
         }
 
+        div {
+            display: inline-block;
+            margin: 1em;
+            padding: 1em;
+            border: 1px solid black;
+        }
+
         .after {
             font-variant-numeric: tabular-nums;
             font-feature-settings: "tnum";
@@ -17,11 +24,13 @@
 </head>
 <body>
     <div>
+        <p>Numbers not aligned</p>
         <p>1234567,89</p>
         <p>1111111,11</p>
         <p>7777777,77</p>
     </div>
     <div class="after">
+        <p>Numbers aligned</p>
         <p>1234567,89</p>
         <p>1111111,11</p>
         <p>7777777,77</p>
