@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>divs side by side - pure CSS</title>
+</head>
+
+<body>
+  <h1>Divs Side by Side - Pure CSS</h1> 
+  <!-- display: flex on the parent makes its children align in a row by default -->
+  <!-- super simple and responsive -->
+  <!-- needs a wrapper -->
+  <p>Using display: flex;</p>
+  <div style="display: flex;">
+    <div style="background: lightblue; padding: 20px;">Div 1</div>
+    <div style="background: lightgreen; padding: 20px;">Div 2</div>
+  </div>
+
+  <!-- works without a wrapper -->
+  <!-- be careful: whitespace in HTML may create small gaps -->
+  <p>Using display: inline-block;</p>
+  <div style="display: inline-block; background: lightblue; padding: 20px;">Div 1</div>
+  <div style="display: inline-block; background: lightgreen; padding: 20px;">Div 2</div>
+
+  <!-- overkill for 2 divs -->
+  <!-- lets you control columns precisely -->
+  <p>Using display: grid;</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr;">
+    <div style="background: lightblue; padding: 20px;">Div 1</div>
+    <div style="background: lightgreen; padding: 20px;">Div 2</div>
+  </div>
+</body>
+
+</html>
