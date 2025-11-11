@@ -3,24 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Two Motion Path Animations</title>
     <style>
         body {
             background-color: #fff8f0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            gap: 80px; /* space between the two demos */
+            min-height: 100vh;
             margin: 0;
         }
 
-        /* Same coordinate space as the SVG viewBox */
         .demo {
             position: relative;
             width: 900px;
             height: 420px;
         }
 
-        /* SVG only draws the guide line */
         svg {
             position: absolute;
             inset: 0;
@@ -34,39 +35,65 @@
             stroke-width: 6;
         }
 
-        .box {
+        /* First animation (pure CSS) */
+        .box1 {
             position: absolute;
             top: 0;
             left: 0;
-            /* (0,0) aligns with the path space */
             width: 42px;
             height: 42px;
-            /* simple square */
             background: #1f6658;
-
-            /* Use the SAME path data as the SVG above */
             offset-path: path("M48,360 C240,60 660,60 852,360");
             offset-distance: 0%;
             offset-rotate: auto;
-            animation: move 1s ease-in-out infinite alternate;
+            animation: move1 1s ease-in-out infinite alternate;
         }
 
-        @keyframes move {
+        @keyframes move1 {
             to {
                 offset-distance: 100%;
             }
         }
+
+        /* Second animation (GPU accelerated) */
+        .box2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 42px;
+            height: 42px;
+            background: #1f6658;
+            offset-path: path("M48,360 C240,60 660,60 852,360");
+            offset-distance: 0%;
+            offset-rotate: auto;
+            will-change: transform, offset-distance;
+            transform: translateZ(0);
+            animation: move2 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes move2 {
+            to {
+                offset-distance: 100%;
+                transform: translateZ(0);
+            }
+        }
     </style>
-    <title>Motion path - pure CSS</title>
 </head>
 
 <body>
+    <!-- First animation -->
     <div class="demo">
         <svg viewBox="0 0 900 420" aria-hidden="true">
             <path d="M48,360 C240,60 660,60 852,360" />
         </svg>
-        <div class="box"></div>
+        <div class="box1"></div>
+    </div>
+
+    <!-- Second animation -->
+    <div class="demo">
+        <svg viewBox="0 0 900 420" aria-hidden="true">
+            <path d="M48,360 C240,60 660,60 852,360" />
+        </svg>
+        <div class="box2"></div>
     </div>
 </body>
-
-</html>
