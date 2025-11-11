@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <style>
         body {
             background-color: #fff8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
+
         /* Same coordinate space as the SVG viewBox */
         .demo {
             position: relative;
-            width: 300px;
-            height: 140px;
+            width: 900px;
+            height: 420px;
         }
+
         /* SVG only draws the guide line */
         svg {
             position: absolute;
@@ -19,25 +27,30 @@
             width: 100%;
             height: 100%;
         }
+
         path {
             fill: none;
             stroke: #999;
-            stroke-width: 2;
+            stroke-width: 6;
         }
+
         .box {
             position: absolute;
             top: 0;
-            left: 0; /* (0,0) aligns with the path space */
-            width: 14px;
-            height: 14px; /* simple square */
+            left: 0;
+            /* (0,0) aligns with the path space */
+            width: 42px;
+            height: 42px;
+            /* simple square */
             background: #1f6658;
 
             /* Use the SAME path data as the SVG above */
-            offset-path: path("M16,120 C80,20 220,20 284,120");
+            offset-path: path("M48,360 C240,60 660,60 852,360");
             offset-distance: 0%;
             offset-rotate: auto;
-            animation: move 3s ease-in-out infinite alternate;
+            animation: move 1s ease-in-out infinite alternate;
         }
+
         @keyframes move {
             to {
                 offset-distance: 100%;
@@ -46,12 +59,14 @@
     </style>
     <title>Motion path - pure CSS</title>
 </head>
+
 <body>
     <div class="demo">
-        <svg viewBox="0 0 300 140" aria-hidden="true">
-            <path d="M16,120 C80,20 220,20 284,120" />
+        <svg viewBox="0 0 900 420" aria-hidden="true">
+            <path d="M48,360 C240,60 660,60 852,360" />
         </svg>
         <div class="box"></div>
     </div>
 </body>
+
 </html>
